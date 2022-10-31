@@ -1,11 +1,26 @@
-# FastAPI_API_Docker
+To run with docker-compose:
+Run:
+
+docker-compose build
+docker-compose up
+
+then go to http://127.0.0.1:5050/ to access PGAdmin
+
+login: admin@admin.com
+password: admin
+
+To migrate the DBs, run:
+
+docker-compose run app alembic revision --autogenerate -m "New Migration"
+docker-compose run app alembic upgrade head
 
 
-A simple API made with FastAPI. I've dockerized the application so I could also use a PGadmin container.
-I'll be updating this with more functionalities, such as:
 
-- Login and Logout
-- A billing system
-- Improve basic CRUD methods
 
-You can also run this locally, but the PGadmin container must be running so you can connect to the database. Please read the README file for more instructions
+To run locally:
+
+docker-compose build
+docker-compose up
+
+Stop the 'app' container
+then run "uvicorn main:app --reload"
